@@ -1,0 +1,23 @@
+{
+  "name": "perplexityai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "node ./examples/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luiscruzga/perplexityai.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luiscruzga/perplexityai/issues"
+  },
+  "homepage": "https://github.com/luiscruzga/perplexityai#readme",
+  "dependencies": {
+    "puppeteer": "^19.6.0"
+  }
+}
