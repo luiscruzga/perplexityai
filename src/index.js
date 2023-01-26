@@ -37,11 +37,16 @@ PerplexityAI.search = async (prompt) => {
     );
     
     let changeText = true;
+    let detailedLength = 0;
     while (changeText) {
-      if ((await getTextResponse(page)).length > textConcise.length) changeText = false;
-      else await delay(1000);
+      const actualLength = (await getTextResponse(page)).length;
+      if (actualLength > textConcise.length) {
+        if (actualLength > detailedLength) detailedLength = actualLength;
+        else changeText = false;
+      }
+      await delay(500);
     }
-    await delay(3000);
+    
     const textDetailed = await getTextResponse(page);
     const sources = await page.evaluate(() => {
       return [...document.querySelectorAll('a[target="_blank"].block.group')].map(el => {
